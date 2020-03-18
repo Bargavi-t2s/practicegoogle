@@ -1,0 +1,48 @@
+<html>
+    <head>
+    <title>
+        T2S Application - ShortUrl 
+      </title>
+      <meta charset="utf-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+      <meta name="active-menu" content="" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    
+    <style>
+        .border-success
+        {
+            position:relative;
+            top:250px;
+            left:600px;
+        }
+    </style>
+</head>
+<body>
+    <form class="w-25 ml-5 border border-success rounded bg-secondary text-white py-4" action="/generateUrl" method="POST">
+        <div>
+            <h2 class="pl-3 pb-3">Login</h2>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-5 m-0 pl-5" for="username">Enter Username<span class="star" style="color:red">*</span></label>
+		<input type="text" class="form-control col-sm-6 pt-2" placeholder="Username" name="username" id="username" required>
+        </div>
+<div class="form-group row">
+			<label class="col-sm-5 m-0 pl-5" for="password">Enter Password<span class="star" style="color:red">*</span></label>
+		<input type="password" class="form-control col-sm-6 pt-2" placeholder="Password" name="password" id="password" required>
+</div>
+	<div class="pl-5 row">
+        <button type="submit" class="btn btn-sm btn-success mr-3">Login</button>
+        <a href="/" class="btn btn-sm btn-primary mr-3">Login with Google</a>
+        <a href="/signup" class="btn btn-sm btn-warning">Sign Up</a>
+    </div>
+
+    </form>
+
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" ></script>
+<!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script> -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+</body>
+</html>

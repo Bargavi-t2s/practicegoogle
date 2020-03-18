@@ -53,6 +53,31 @@ security: [
       ],    
   };
 
+const { google } = require('googleapis');
+const OAuth2Data = require('../short_url_google_key.json');
+
+const CLIENT_ID = OAuth2Data.web.client_id;
+const CLIENT_SECRET = OAuth2Data.web.client_secret;
+const REDIRECT_URL = OAuth2Data.web.redirect_uris;
+const oAuth2Client = new google.auth.OAuth2(CLIENT_ID, CLIENT_SECRET, REDIRECT_URL)
+var authed = false;
+
+  app.get('/login', (req,res,next)=>{
+    res.render('login');
+
+  });
+
+  app.get('/', (req, res) => {
+        const url = oAuth2Client.generateAuthUrl({
+            
+            scope: 'https://www.googleapis.com/auth/gmail.readonly'
+        });
+        console.log(url)
+        res.redirect(url);
+        console.log("This is index.")
+  });
+
+
 
   const options = {
     swaggerDefinition: swaggerDefinition,
@@ -87,8 +112,13 @@ security: [
 *       default:
 *         description: Unexpected error
 */
-  app.get("/", validateCookie, renderLandingPage);
-  app.get("/about", (req, res) => res.status(200).render("about"));
+app.get("/generateUrl", validateCookie, renderLandingPage);
+
+app.post("/generateurl", validateUser);
+
+app.get("/about", (req, res) => res.status(200).render("about"));
+
+app.get("/signup", (req, res) => res.status(200).render("signup"));
 /**
 * @swagger
 *    /:
@@ -127,6 +157,9 @@ security: [
 
   app.post("/", stripUrl, validateOwnDomain, urlAlreadyTrimmedByUser, customUrlExists, trimUrl);
   app.get("/about", aboutPage);
+
+  app.post("/login", insertUserData);
+  
   app.get("/:id", getUrlAndUpdateCount);
 
 /**

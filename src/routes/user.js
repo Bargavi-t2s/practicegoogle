@@ -61,4 +61,9 @@ router.post('/users/me/logoutall', auth, async(req, res) => {
     }
 })
 
+router.get('/signup', (req,res,next)=>{
+    //for signing up a new user
+    res.render('signup');
+});
+
 module.exports = router

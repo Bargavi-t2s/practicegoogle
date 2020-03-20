@@ -8,9 +8,10 @@ const { initRoutes } = require('./routes/routes');
 const db = require('./database/db');
 //const port = process.env.PORT
 const userRouter = require('./routes/user')
+var expressValidator = require('express-validator');
 
 const app = express();
-
+app.use(expressValidator());
 app.use(session(
     {
         secret:'secret-code',

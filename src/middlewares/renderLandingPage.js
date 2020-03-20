@@ -17,12 +17,13 @@ export const renderLandingPage = (req, res) => {
       createdAt: "desc" // sort the created clips in a decending order
     })
     .then(clips => {
+      //let email =req.session.user.email;
       //Pass the user's clips to the view engine to render the customized view for this user.
       return res.status(200).render("index", {
         userClips: clips,
-        created_by: req.session.user.email,
+        created_by: "bargavi",
         success: true,
-        useremail:req.session.user.email
+        useremail:"bargavi"
       }); // TODO: collect cookie data from req object
     });
 };

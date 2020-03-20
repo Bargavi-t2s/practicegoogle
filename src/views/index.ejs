@@ -17,13 +17,11 @@
       <!-- TRIM LOGO -->
       <div class="row">
         <div class="col-md-12 col-lg-12 col-sm-12">
-          
 
           <h1 class="mb-2">T2S App - ShortUrl</h1>
           <h1>Welcome <%= useremail %> !!</h1>
-          <form class="logoutButton" action="/login-session-expired" method="POST">
-            <button type="submit" class="btn btn-danger">Logout</button>
-          </form>
+          
+          
           <h5 class="small-heading ">
            ShortUrl Application
           </h5>
@@ -182,6 +180,10 @@
       </div>
     </div>
   </div>
-
+  <div class="col-md-12 col-lg-12 col-sm-12">
+  <a href="/login-session-expired">
+    <button type="submit" class="btn btn-danger">Logout</button>
+  </a>
+</div>
  <% include partials/footer %>
  

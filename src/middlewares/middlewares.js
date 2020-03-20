@@ -1,7 +1,7 @@
 import { validateCookie } from './validateCookie';
 import { renderLandingPage } from './renderLandingPage';
 import{ aboutPage } from './aboutPage';
-import{ insertUserData, validateUser } from './signUp';
+import{ insertUserData, validateUser, checkUser, signUp,signUpValidation, sessionLogout } from './signUp';
 import { validateOwnDomain, urlAlreadyTrimmedByUser, stripUrl, customUrlExists } from './validateUrl';
 
-export { renderLandingPage, aboutPage, validateUser, validateOwnDomain, validateCookie, urlAlreadyTrimmedByUser, stripUrl, customUrlExists, insertUserData };
+export { renderLandingPage, aboutPage, validateOwnDomain, validateCookie, urlAlreadyTrimmedByUser, stripUrl, customUrlExists, insertUserData, checkUser, signUp,signUpValidation,validateUser, sessionLogout};

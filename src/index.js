@@ -11,6 +11,14 @@ const userRouter = require('./routes/user')
 
 const app = express();
 
+app.use(session(
+    {
+        secret:'secret-code',
+        resave: true,
+        saveUninitialized: true
+    }
+    ));
+
 app.use((req, res, next) => {
   //res.setHeader('Access-Control-Allow-Origin', '*'); //Don't think we need CORS here.
   res.setHeader(

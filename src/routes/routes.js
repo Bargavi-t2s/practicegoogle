@@ -6,9 +6,15 @@ const swaggerUi = require('swagger-ui-express');
 
 import {
   aboutPage,
+  insertUserData,
   renderLandingPage,
   validateOwnDomain,
   validateCookie,
+  validateUser,
+  checkUser,
+  signUp,
+  signUpValidation, 
+  sessionLogout,
   urlAlreadyTrimmedByUser,
   stripUrl,
   customUrlExists
@@ -62,19 +68,15 @@ const REDIRECT_URL = OAuth2Data.web.redirect_uris;
 const oAuth2Client = new google.auth.OAuth2(CLIENT_ID, CLIENT_SECRET, REDIRECT_URL)
 var authed = false;
 
-  app.get('/login', (req,res,next)=>{
-    res.render('login');
+  app.get('/', checkUser);
 
-  });
-
-  app.get('/', (req, res) => {
+  app.get('/google', (req, res) => {
         const url = oAuth2Client.generateAuthUrl({
             
             scope: 'https://www.googleapis.com/auth/gmail.readonly'
         });
         console.log(url)
         res.redirect(url);
-        console.log("This is index.")
   });
 
 
@@ -114,11 +116,14 @@ var authed = false;
 */
 app.get("/generateUrl", validateCookie, renderLandingPage);
 
-app.post("/generateurl", validateUser);
+app.post("/generateurl", validateUser, renderLandingPage);
 
 app.get("/about", (req, res) => res.status(200).render("about"));
 
 app.get("/signup", (req, res) => res.status(200).render("signup"));
+
+
+
 /**
 * @swagger
 *    /:
@@ -158,8 +163,10 @@ app.get("/signup", (req, res) => res.status(200).render("signup"));
   app.post("/", stripUrl, validateOwnDomain, urlAlreadyTrimmedByUser, customUrlExists, trimUrl);
   app.get("/about", aboutPage);
 
-  app.post("/login", insertUserData);
-  
+  app.post("/login", signUpValidation, insertUserData);
+
+  app.post("/login-session-expired", sessionLogout);
+
   app.get("/:id", getUrlAndUpdateCount);
 
 /**

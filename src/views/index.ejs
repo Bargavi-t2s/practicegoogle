@@ -3,6 +3,13 @@
     .copy:hover {
       color: #fff;
     }
+
+    .logoutButton
+    {
+    position:relative;
+    left:50rem;
+    bottom:10vh;
+    }
   </style>
   <div id="fb-root"></div>
   <div class="wrapper">
@@ -13,6 +20,10 @@
           
 
           <h1 class="mb-2">T2S App - ShortUrl</h1>
+          <h1>Welcome <%= useremail %> !!</h1>
+          <form class="logoutButton" action="/login-session-expired" method="POST">
+            <button type="submit" class="btn btn-danger">Logout</button>
+          </form>
           <h5 class="small-heading ">
            ShortUrl Application
           </h5>

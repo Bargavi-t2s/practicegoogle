@@ -20,8 +20,9 @@ export const renderLandingPage = (req, res) => {
       //Pass the user's clips to the view engine to render the customized view for this user.
       return res.status(200).render("index", {
         userClips: clips,
-        created_by: userID,
-        success: true
+        created_by: req.session.user.email,
+        success: true,
+        useremail:req.session.user.email
       }); // TODO: collect cookie data from req object
     });
 };

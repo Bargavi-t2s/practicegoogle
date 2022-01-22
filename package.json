@@ -59,7 +59,7 @@
     "mongodb": "^3.2.7",
     "mongoose": "^5.7.5",
     "morgan": "^1.9.1",
-    "nanoid": "^2.1.2",
+    "nanoid": "^3.1.31",
     "saslprep": "^1.0.3",
     "swagger-jsdoc": "^3.5.0",
     "swagger-ui-express": "^4.1.3",
